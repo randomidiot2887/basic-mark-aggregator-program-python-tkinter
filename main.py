@@ -29,11 +29,13 @@ def process():
     """
     # Initialising Lists
     retrived_marks = [0 for _ in range(10)]
+    
     # Initialising Variables
     subject_no = 0
     number_subjects_processed = 0
     total_of_all_marks = 0
-    aggregate_marks = 0
+    aggregate_marks_calculation = 0
+    
     # Loop to retreve, store and total users marks and find the number of subjects user takes
     for element in entries.subjects:
         retrived_marks[subject_no] = float(entries.subjects[element].get())
@@ -41,18 +43,19 @@ def process():
             number_subjects_processed += 1
             total_of_all_marks += retrived_marks[subject_no]
         subject_no += 1
-    # Checks if the user did input data fr any subject and finds aggregate marks
-    # avoids ZeroDivisionError
-    # Outputs as a percentage of 100
+        
+    # Checks if the user did input data fr any subject and finds aggregate marks, avoids ZeroDivisionError, Outputs as a percentage of 100
     if number_subjects_processed != 0:
-        aggregate_marks = (total_of_all_marks / (100 * number_subjects_processed)) * 100
+        aggregate_marks_calculation = (total_of_all_marks / (100 * number_subjects_processed)) * 100
+    
     # Print to console as debug logs
-    print(f'{number_subjects_processed} subjects detected')
-    print(f'Users retreved marks are {retrived_marks}')
-    print(f'Users aggregate marks (after calculation){aggregate_marks}')
+    print(f'{number_subjects_processed}: subjects detected')
+    print(f'Users retreved marks are: {retrived_marks}')
+    print(f'Users aggregate marks (after calculation): {aggregate_marks_calculation}')
+    
     #  Display marks in the aggregate marks entry
     aggregate_marks['entry'].delete(0, 'end')
-    aggregate_marks['entry'].insert(0, aggregate_marks)
+    aggregate_marks['entry'].insert(0, aggregate_marks_calculation)
 
 
 root.title('Marks aggregator v1.0') # makes the title of the window
