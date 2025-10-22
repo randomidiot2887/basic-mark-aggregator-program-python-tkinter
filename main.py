@@ -81,3 +81,5 @@ Window_Title.grid(row=0, column=0, columnspan=2)
 calculate = ttk.Button(root, text='Calculate', command=process)
 calculate.grid(row=row_count, column=0, columnspan=2, padx=5, pady=10)
 root.mainloop()
+
+# Fixes are needed

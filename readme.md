@@ -33,4 +33,6 @@ No, i didnt make it os specific i think
 - **MacOS**
     - i dont know, i dont own a mac
 
+- **This is the dev branch**
+
 
