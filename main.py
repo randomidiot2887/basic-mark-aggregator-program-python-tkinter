@@ -5,7 +5,7 @@ from tkinter import ttk
 root = tk.Tk() # Declare the root object
 
 def process():
-    output = ['' for _ in range(10)]
+    output = [0 for _ in range(10)]
     count = 0
     num_subjects = 0
     total_mark = 0
