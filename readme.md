@@ -13,13 +13,18 @@ Made as a **basic coding project for fun during break times of mine**
 - code should be more structured
 
 ## compiled binaries
-Not avalable yet, this isnt a final product
+- **Windows**
+    - Download it from the github releases page [here](https://github.com/randomidiot2887/basic-mark-aggregator-program-python-tkinter/releases/tag/version-1.0.1_
+- **Linux**
+    - Download it from the girhub releases page [here](https://github.com/randomidiot2887/basic-mark-aggregator-program-python-tkinter/edit/main/readme.md)
+
+Only **AMD64** devices are supported. tho it could be compiled for any other architecure that supports tkinter and python
 
 you should be able to **compile** it using pyinstaller tho to make an executable binary
 
 No, i didnt make it os specific i think
 
-## dependencies
+## dependencies (if not compiled)
 - **Windows**
     - Python 3.13 or 3.12 (whatever, it should work with any 3x version, i havnt tested)
     > Note: Tkinter comes preinstalled with windows versions of python
