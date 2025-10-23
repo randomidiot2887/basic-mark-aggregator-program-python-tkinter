@@ -8,7 +8,6 @@ Made as a **basic coding project for fun during break times of mine**
 
 ## Issues
 - Code base is very unclean with many typos and shit
-- the output list is init with str when float is being inserted into it
 - More sutable variable names should be found and used
 - code should be more structured
 
