@@ -59,6 +59,59 @@ def process():
     aggregate_marks['entry'].delete(0, 'end')
     aggregate_marks['entry'].insert(0, aggregate_marks_calculation)
 
+def setup():
+    """
+    Purpose
+    -------
+    Moves the old setup code to setup the window from the mainloop to its own dedicated function
+    increases the modularity of the program
+    
+    Variables used
+    --------------
+        index : as a counter variable
+                in the for loops to setup the structure of the program
+        element: holds the index of the dictionaries, NOTE Better name is needed
+    
+    Global variables accesed
+    ------------------------
+        aggregate_marks dictionary
+            used to make the structure of the aggregate marks display label and entry
+        class entry
+            dictionary subjects
+                stores the wigets of the entries of the users subjects
+        class labels
+            dictioary subjects
+                stores the corrosponding labels of the users subjects for the entries
+        process_button
+            used to store wiget of the button that is to be pressed to trigger procedure process to process and display users aggregate marks
+        heading
+            used to display the main header label of the window. also known as title
+    """
+    # Declaring global variables
+    global process_button
+    global heading
+    
+    for index, element in enumerate(labels.subjects, 1):
+        entries.subjects[element].insert(0, '') # Inserts -1 to every entry as starter
+        # Sets up the entries and labels
+        entries.subjects[element].grid(row=index, column=1, padx=10, pady=5) 
+        labels.subjects[element].grid(row=index, column=0, padx=10, pady=5)
+        # Increments counter
+        index += 1
+
+    for index, element in enumerate(aggregate_marks, 0):
+        # Sets the position of the aggregate marks display label and button
+        aggregate_marks[element].grid(row=12, column=index, padx=10, pady=5)
+        # increments the counter
+        index += 1
+
+    # Sets up the locaton of the main heading of the indow
+    heading.grid(row=0, column=0, columnspan=2)
+
+    # sets up the one button (button to process the function)
+    process_button = ttk.Button(root, text='Process', command=process)
+    process_button.grid(row=11, column=0, columnspan=2, padx=5, pady=10)
+
 root.title('Marks aggregator v1.0') # makes the title of the window
 heading = ttk.Label(root, text='Marks aggregator') # Main heading of the window
 
@@ -98,29 +151,7 @@ aggregate_marks = { # Dictionary containing users agregate marks and its label
 #aggregate_marks['entry'].config(state='readonly') # Sets aggregatemarks to read only
 aggregate_marks['entry'].insert(0, '0') # Sets agregate marks entry value to 0
 
-# sets the positions and arrangement of the entries, and labels
-# -------------------------------------------------------------
-
-for index, element in enumerate(labels.subjects, 1):
-    entries.subjects[element].insert(0, '') # Inserts -1 to every entry as starter
-    # Sets up the entries and labels
-    entries.subjects[element].grid(row=index, column=1, padx=10, pady=5) 
-    labels.subjects[element].grid(row=index, column=0, padx=10, pady=5)
-    # Increments counter
-    index += 1
-
-for index, element in enumerate(aggregate_marks, 0):
-    # Sets the position of the aggregate marks display label and button
-    aggregate_marks[element].grid(row=12, column=index, padx=10, pady=5)
-    # increments the counter
-    index += 1
-
-# Sets up the locaton of the main heading of the indow
-heading.grid(row=0, column=0, columnspan=2)
-
-# sets up the one button (button to process the function)
-process = ttk.Button(root, text='Process', command=process)
-process.grid(row=11, column=0, columnspan=2, padx=5, pady=10)
+setup() # Procedure to go set everything in the program up for the user to be able to use
 
 # Starts the mainloop
 root.mainloop()
