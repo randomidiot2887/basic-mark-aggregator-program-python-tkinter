@@ -14,7 +14,7 @@ Made as a **basic coding project for fun during break times of mine**
 
 ## compiled binaries
 - **Windows**
-    - Download it from the github releases page [here](https://github.com/randomidiot2887/basic-mark-aggregator-program-python-tkinter/releases/tag/version-1.0.1_
+    - Download it from the github releases page [here](https://github.com/randomidiot2887/basic-mark-aggregator-program-python-tkinter/releases/tag/version-1.0.1)
 - **Linux**
     - Download it from the girhub releases page [here](https://github.com/randomidiot2887/basic-mark-aggregator-program-python-tkinter/edit/main/readme.md)
 
