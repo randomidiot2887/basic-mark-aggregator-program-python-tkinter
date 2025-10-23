@@ -38,8 +38,10 @@ def process():
     
     # Loop to retreve, store and total users marks and find the number of subjects user takes
     for element in entries.subjects:
-        retrived_marks[subject_no] = float(entries.subjects[element].get())
-        if retrived_marks[subject_no] != -1.0:
+        
+        result = entries.subjects[element].get()
+        if result != '':
+            retrived_marks[subject_no] = float(result)
             number_subjects_processed += 1
             total_of_all_marks += retrived_marks[subject_no]
         subject_no += 1
@@ -59,7 +61,7 @@ def process():
 
 
 root.title('Marks aggregator v1.0') # makes the title of the window
-Window_Title = ttk.Label(root, text='Marks aggregator') # Main heading of the window
+heading = ttk.Label(root, text='Marks aggregator') # Main heading of the window
 
 class entries: # class containng entries for subjects where use inputs data
     subjects = {
@@ -101,7 +103,7 @@ aggregate_marks['entry'].insert(0, '0') # Sets agregate marks entry value to 0
 
 
 for index1, element in enumerate(labels.subjects, 1):
-    entries.subjects[element].insert(0, '-1') # Inserts -1 to every entry as starter
+    entries.subjects[element].insert(0, '') # Inserts -1 to every entry as starter
     
     # Sets up the entries and labels
     entries.subjects[element].grid(row=index1, column=1, padx=10, pady=5) 
@@ -115,7 +117,9 @@ for index, element in enumerate(aggregate_marks, 0):
     aggregate_marks[element].grid(row=index1+1, column=index, padx=10, pady=5)
     # increments the counter
     index += 1
-Window_Title.grid(row=0, column=0, columnspan=2)
+
+# Sets up the locaton of the main heading of the indow
+heading.grid(row=0, column=0, columnspan=2)
 
 # sets up the one button (button to process the function)
 process = ttk.Button(root, text='Process', command=process)
