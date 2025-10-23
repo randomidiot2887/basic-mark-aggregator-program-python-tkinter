@@ -153,5 +153,9 @@ aggregate_marks['entry'].insert(0, '0') # Sets agregate marks entry value to 0
 
 setup() # Procedure to go set everything in the program up for the user to be able to use
 
-# Starts the mainloop
+# sets up the one button
+calculate = ttk.Button(root, text='Calculate', command=process)
+calculate.grid(row=row_count, column=0, columnspan=2, padx=5, pady=10)
 root.mainloop()
+
+# Fixes are needed
