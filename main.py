@@ -59,7 +59,6 @@ def process():
     aggregate_marks['entry'].delete(0, 'end')
     aggregate_marks['entry'].insert(0, aggregate_marks_calculation)
 
-
 root.title('Marks aggregator v1.0') # makes the title of the window
 heading = ttk.Label(root, text='Marks aggregator') # Main heading of the window
 
@@ -100,21 +99,19 @@ aggregate_marks = { # Dictionary containing users agregate marks and its label
 aggregate_marks['entry'].insert(0, '0') # Sets agregate marks entry value to 0
 
 # sets the positions and arrangement of the entries, and labels
+# -------------------------------------------------------------
 
-
-for index1, element in enumerate(labels.subjects, 1):
+for index, element in enumerate(labels.subjects, 1):
     entries.subjects[element].insert(0, '') # Inserts -1 to every entry as starter
-    
     # Sets up the entries and labels
-    entries.subjects[element].grid(row=index1, column=1, padx=10, pady=5) 
-    labels.subjects[element].grid(row=index1, column=0, padx=10, pady=5)
+    entries.subjects[element].grid(row=index, column=1, padx=10, pady=5) 
+    labels.subjects[element].grid(row=index, column=0, padx=10, pady=5)
     # Increments counter
-    index1 += 1
-
+    index += 1
 
 for index, element in enumerate(aggregate_marks, 0):
     # Sets the position of the aggregate marks display label and button
-    aggregate_marks[element].grid(row=index1+1, column=index, padx=10, pady=5)
+    aggregate_marks[element].grid(row=12, column=index, padx=10, pady=5)
     # increments the counter
     index += 1
 
@@ -123,7 +120,7 @@ heading.grid(row=0, column=0, columnspan=2)
 
 # sets up the one button (button to process the function)
 process = ttk.Button(root, text='Process', command=process)
-process.grid(row=index1, column=0, columnspan=2, padx=5, pady=10)
+process.grid(row=11, column=0, columnspan=2, padx=5, pady=10)
 
 # Starts the mainloop
 root.mainloop()
