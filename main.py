@@ -48,7 +48,7 @@ def process():
         
     # Checks if the user did input data fr any subject and finds aggregate marks, avoids ZeroDivisionError, Outputs as a percentage of 100
     if number_subjects_processed != 0:
-        aggregate_marks_calculation = (total_of_all_marks / (100 * number_subjects_processed)) * 100
+        aggregate_marks_calculation = round(((total_of_all_marks / (100 * number_subjects_processed)) * 100), 1)
     
     # Print to console as debug logs
     print(f'{number_subjects_processed}: subjects detected')
@@ -131,16 +131,16 @@ class entries: # class containng entries for subjects where use inputs data
 
 class labels: # Class contaning labels for subjects
     subjects = {
-        'english' : ttk.Label(root, text='English'),
-        'dhivehi' : ttk.Label(root, text='Dhivehi'),
-        'mathematics' : ttk.Label(root, text='Mathematics'),
-        'chemistry' : ttk.Label(root, text='Chemistry'),
-        'physics' : ttk.Label(root, text='Physics'),
-        'biology' : ttk.Label(root, text='Biology'),
-        'marine science' : ttk.Label(root, text='Marine Science'),
-        'business' : ttk.Label(root, text='Business'),
-        'accounting' : ttk.Label(root, text='Accounting'),
-        'economics' : ttk.Label(root, text='Economics')
+        'english' : ttk.Label(root, text='Subject:'),
+        'dhivehi' : ttk.Label(root, text='Subject:'),
+        'mathematics' : ttk.Label(root, text='Subject:'),
+        'chemistry' : ttk.Label(root, text='Subject:'),
+        'physics' : ttk.Label(root, text='Subject:'),
+        'biology' : ttk.Label(root, text='Subject:'),
+        'marine science' : ttk.Label(root, text='Subject:'),
+        'business' : ttk.Label(root, text='Subject:'),
+        'accounting' : ttk.Label(root, text='Subject:'),
+        'economics' : ttk.Label(root, text='Subject:')
     }
 
 aggregate_marks = { # Dictionary containing users agregate marks and its label
@@ -153,9 +153,6 @@ aggregate_marks['entry'].insert(0, '0') # Sets agregate marks entry value to 0
 
 setup() # Procedure to go set everything in the program up for the user to be able to use
 
-# sets up the one button
-calculate = ttk.Button(root, text='Calculate', command=process)
-calculate.grid(row=row_count, column=0, columnspan=2, padx=5, pady=10)
 root.mainloop()
 
 # Fixes are needed
